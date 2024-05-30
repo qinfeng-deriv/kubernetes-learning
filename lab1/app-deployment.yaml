@@ -1,0 +1,57 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: my-app
+  template:
+    metadata:
+      labels:
+        app: my-app
+    spec:
+      containers:
+        - name: flask-app
+          image: qinfengderiv/flask-app:1.0.0
+          ports:
+            - containerPort: 6969
+          env:
+            - name: FLASK_ENV
+              value: production
+            # Add any other environment variables needed for your Flask app
+      # Add volumes, secrets, or other configuration as needed
+---
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: cron-job-1
+spec:
+  schedule: "*/5 * * * *"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+          - name: cron-job-1
+            image: qinfengderiv/cron-job-1:1.0.0
+            # Add any command or arguments needed for your cron job
+          restartPolicy: OnFailure
+---
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: cron-job-2
+spec:
+  schedule: "0 0 * * *"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+          - name: cron-job-2
+            image: qinfengderiv/cron-job-1:1.0.0
+            # Add any command or arguments needed for your cron job
+          restartPolicy: OnFailure
+
