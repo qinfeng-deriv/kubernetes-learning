@@ -16,4 +16,6 @@ Before this, you need to have your application containerize and by design, state
 3) `minikube service my-app-service --url`
 4) `curl` the URL from step 3
 
-
+## Clean up
+1) `kubectl delete service my-app-service`
+2) `kubectl delete deployment my-app`
