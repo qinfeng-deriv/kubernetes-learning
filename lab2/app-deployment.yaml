@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: my-app
+  template:
+    metadata:
+      labels:
+        app: my-app
+    spec:
+      containers:
+        - name: flask-app
+          image: qinfengderiv/flask-app:2.0.0
+          ports:
+            - containerPort: 6969
+          env:
+            - name: FLASK_ENV
+              value: production
+            # Add any other environment variables needed for your Flask app
+      # Add volumes, secrets, or other configuration as needed
+---
