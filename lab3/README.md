@@ -27,6 +27,7 @@ image:
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
 ```
 This is to use the image name and tag dynamically from `values.yaml`
+
 5) `helm install my-app-helm ./my-app-chart`
 6) Your app should be deployed now! Notice how we don't have to `kubectl apply -f` anymore.
 
