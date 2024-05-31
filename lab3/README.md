@@ -3,7 +3,7 @@
 In this lab we are practising how to use helm to deploy `qinfengderiv/flask-app:2.0.0`.
 This is a continuum from lab2.
 
-## Overall flow of deploying to k8s using halem
+## Overall flow of deploying to k8s using helm
 
 Install helm first, if you haven't already.
 
