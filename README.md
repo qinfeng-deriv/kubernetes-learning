@@ -11,7 +11,10 @@
 lab 2
 - [x] Load testing and scaling your application
 
+lab 3
+- [x] Basic Helm
+
 Future labs
 - [ ] Secrets management
 - [ ] Rolling updates
-- [ ] Helm
+- [ ] Helm install third party service
